@@ -6,8 +6,20 @@ A full-stack MERN application built to streamline tracking and verification of s
 
 ## 🚀 Live Demo
 
-- Frontend (Netlify): <your-netlify-url>
-- Backend (Render): <your-render-url>
+- Frontend (Vercel): [https://doc-tracker-demo.vercel.app/]
+
+---
+
+## 📸 Screenshots
+
+### Student Document Tracking
+![Tracking Screen](./screenshots/tracker.png)
+
+### Summary Dashboard
+![Summary Dashboard](./screenshots/summary.png)
+
+### PDF Export Report
+![PDF Export](./screenshots/pdf-report.png)
 
 ---
 

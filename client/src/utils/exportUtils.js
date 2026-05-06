@@ -20,24 +20,18 @@ export function generatePDF(allData) {
   doc.setTextColor(0);
 
   // Abbreviated column headers to fit landscape A4
-  const docShortNames = {
-    "Aadhaar Card Student": "Aadhaar (S)",
-    "Aadhaar Card Mom": "Aadhaar (M)",
-    "Aadhaar Card Dad": "Aadhaar (F)",
-    "Bank Account": "Bank",
-    "Caste Certificate": "Caste Cert",
-    "Date Of Birth Certificate": "DOB (Old)",
-    "DOB new": "DOB (New)",
-    "Residence Certificate": "Residence",
-    "Income Certificate": "Income",
-    "Detail Mark Sheet (Last Year)": "DMC",
-    "School Leaving Certificate": "SLC",
-    "Transfer Certificate": "TC",
-    Fees: "Fees",
-    "Passport Size Photo": "Photo",
-    "Quali Mom": "Mother Edu",
-    "Quali Dad": "Father Edu",
-  };
+const docShortNames = {
+  "Aadhaar Card": "Aadhaar",
+  "Birth Certificate": "Birth Cert",
+  "Bank Account Details": "Bank",
+  "Income Certificate": "Income",
+  "Caste Certificate": "Caste Cert",
+  "Previous Year Marksheet": "Marksheet",
+  "School Leaving Certificate": "SLC",
+  "Transfer Certificate": "TC",
+  "Passport Size Photo": "Photo",
+  "Fee Receipt": "Fees",
+};
 
   const head = [
     ["Student Name", ...DOCUMENTS.map((d) => docShortNames[d] || d), "Total"],
@@ -111,15 +105,15 @@ export function generatePDF(allData) {
 
     margin: { left: 40, right: 40 },
   });
-  const className = "9th";
   const year = new Date().getFullYear();
   const now = new Date();
+
   const day = now.getDate();
   const month = now.toLocaleString("en-IN", { month: "short" });
 
-  const fileName = `9th 26 Documents`;
+  const fileName = `Student-Documents-${day}-${month}-${year}`;
+
   console.log("Generated file name:", fileName);
-  // saveAs(file, fileName);
 
   doc.save(`${fileName}.pdf`);
 }
